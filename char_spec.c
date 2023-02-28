@@ -1,9 +1,10 @@
 #include "main.h"
-#include <stdlib>
+#include <stdlib.h>
 /**
  * get_char - gets a pointer to an array containing char and null byte
  * @args: va_list to get argument from of type char
  * @mods: length modifiers, voided, not used with this specifier
+ *
  * Return: pointer to array containing char and null byte
  */
 char *get_char(va_list args, char *mods)
@@ -18,6 +19,7 @@ char *get_char(va_list args, char *mods)
 	if (!str)
 		return (NULL);
 	if (c)
+
 		str[0] = c;
 	else
 		str[0] = '\0';
@@ -59,6 +61,7 @@ char *get_string(va_list args, char *mods)
  * get_percent - gets a pointer to a string literal containing "%\0"
  * @args: va_list required for function pointer, voided, not used
  * @mods: length modifiers, voided, not used with this specifier
+ *
  * Return: pointer to string literal containing %
  */
 char *get_percent(va_list args, char *mods)
@@ -69,6 +72,7 @@ char *get_percent(va_list args, char *mods)
 	if (args)
 	{
 	}
+
 	str = malloc(2);
 	if (!str)
 		return (NULL);
@@ -79,8 +83,9 @@ char *get_percent(va_list args, char *mods)
 /**
  * insert_null_char - Inserts a nullbyte into the buffer while applying width
  * or left adjustment.
- * @help_s: pointer to the structure containing width and precision values
- * Return: void
+ * @help_s: pointer to the structure containing width and precision values.
+ *
+ * Return: void.
  */
 void insert_null_char(printh_t *help_s)
 {
