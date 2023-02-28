@@ -3,10 +3,12 @@
 int print_helper(printh_t *help_s, va_list args);
 printh_t *init_help_s(const char *, va_list args);
 /**
- * _printf - prints formated string by reffering specifiers
- * @format: String passed
- * Return: Number of characters printed to stdout
- */
+  * _printf - prints formated string by reffering specifiers
+  * @format: String passed
+  *
+  * Return: Number of characters printed to stdout.
+  */
+
 int _printf(const char *format, ...)
 {
 	int E;
@@ -81,6 +83,7 @@ int _printf(const char *format, ...)
  * print_helper - function to split up logic of _printf
  * @help_s: pointer to our helper struct to contain variables for passing
  * @args: va_list of args to advance and use
+ *
  * Return: 1 on success, 0 on failure
  */
 int print_helper(printh_t *help_s, va_list args)
@@ -95,7 +98,7 @@ int print_helper(printh_t *help_s, va_list args)
 	else if (!mod_index)
 		(help_s->spec_c)++;
 	if (_isalpha(help_s->format[help_s->f_i])
-			|| help_s->format[help_s->f_i] == '%')
+		|| help_s->format[help_s->f_i] == '%')
 	{
 		return (handle_alpha_percent(help_s, args));
 	}
@@ -122,6 +125,7 @@ int print_helper(printh_t *help_s, va_list args)
  * @format: pointer to format specifier string to set as pointer
  * @args: va_list pointer, will be sent to free_all to have memory freed if a
  * malloc fails.
+ *
  * Return: pointer to structure created in memory
  */
 printh_t *init_help_s(const char *format, va_list args)
@@ -164,13 +168,16 @@ printh_t *init_help_s(const char *format, va_list args)
 	help_s->precision = help_s->spec_c = 0;
 	return (help_s);
 }
+
+
 /**
  * exit_busy_reset - Reset values to zero
- * upon exit of busy
- * @help_s: Pointer to structure
+ * upon exit of busy.
+ * @help_s: Pointer to structure.
  * @reset_mods: Flag indicator to reset mods. 1 for reset, 0 do nothing.
- * Return: Void
+ * Return: Void.
  */
+
 void exit_busy_reset(printh_t *help_s, int reset_mods)
 {
 	int i;
@@ -187,6 +194,4 @@ void exit_busy_reset(printh_t *help_s, int reset_mods)
 		for (i = 0; i < 2; i++)
 			help_s->mods[i] = 0;
 	}
-}
-
 }
