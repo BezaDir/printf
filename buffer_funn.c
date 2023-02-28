@@ -1,10 +1,10 @@
 #include "main.h"
 #include <unistd.h>
 #include <stdlib.h>
-
 /**
- * create_buff - creates a buffer in memory finaly sets  to 0
+ * create_buff - creates a buffer in memory finaly sets to 0
  * @bytes: number of bytes to allocate
+ *
  * Return: char pointer to beginning of buffer
  */
 char *create_buff(unsigned int bytes)
@@ -14,12 +14,15 @@ char *create_buff(unsigned int bytes)
 	new_buff = malloc(bytes);
 	if (!new_buff)
 		return (NULL);
+	/*for (i = 0; i < bytes; i++)*/
+	/*	new_buff[i] = 0; */
 	return (new_buff);
 }
 /**
  * copy_buff - copies a string into the buffer
  * @str: string to copy into buffer
  * @help_s: pointer to printh_t struct containing buffer, buff_i, etc..
+ *
  * Return: number of bytes written
  */
 unsigned int copy_buff(char *str, printh_t *help_s)
@@ -60,13 +63,14 @@ unsigned int print_buff(char *buff, unsigned int buff_size)
 	bytes_written = write(1, buff, buff_size);
 	return (bytes_written);
 }
-/**
- * free_all - Frees all memory in structure and args
- * @help_s: The pointer to a malloced structure
- * @args: Pointer to a va_list
- * Return: Void
- */
 
+/**
+ * free_all - Frees all memory in structure and args.
+ * @help_s: The pointer to a malloced structure.
+ * @args: Pointer to a va_list.
+ *
+ * Return: Void.
+ */
 void free_all(printh_t *help_s, va_list args)
 {
 	if (help_s)
