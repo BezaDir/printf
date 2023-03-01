@@ -13,9 +13,8 @@ typedef struct type_specifier
 	char t;
 	char *(*f)(va_list args, char *mods);
 } spec_t;
-
 /**
- * struct flag_specifier - contains a flag and it's valid specifiers and f
+ * struct flag_specifier - contains a flag and it's valid specifiers and func
  * @flag: flag represented as character
  * @specs: char pointer to array of valid specifiers for flag
  * @f: get_flag function that returns a char pointer and modifies a char *
@@ -26,7 +25,6 @@ typedef struct flag_specifier
 	char *specs;
 	char *(*f)(char *);
 } flag_t;
-
 /**
  * struct print_helper_s - contains values needed in print helper
  * @format: pointer to format string
@@ -117,5 +115,4 @@ int get_numbase_len(unsigned int num, unsigned int base);
 int get_longnumbase_len(unsigned long int num, unsigned int base);
 void fill_numbase_buff(unsigned int, unsigned int, char *b, int size);
 void fill_longnumbase_buff(unsigned long int num, unsigned int, char *, int);
-
 #endif /* _PRINTF_H_ */
